@@ -1,29 +1,27 @@
 package com.maven.springboot.blog.entities;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
 @Data
 @RequiredArgsConstructor
-@Table(name = "tag")
 public class Tag {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "name")
-    @NotNull(message = "Tag name is a required field")
+    @NotNull(message = "{tag.name.notNull}")
+    @Size(min = 1, max = 100, message = "{tag.name.size}")
     private String name;
 
     @Column(name = "date_create")

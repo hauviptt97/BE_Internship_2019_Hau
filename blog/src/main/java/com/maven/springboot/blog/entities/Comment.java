@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-@Table(name = "comment")
 public class Comment {
 
     @EmbeddedId

@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.io.Serializable;
 
 @Data
@@ -11,6 +13,7 @@ import java.io.Serializable;
 public class CommentKey implements Serializable {
 
     @Column(name = "comment_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(name = "user_id")
